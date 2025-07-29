@@ -1,191 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: 'Montserrat', sans-serif;
-}
-
+/* Base Styling */
 body {
-  background: #f7f8fc;
-  color: #333;
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #f4f4f4;
+  color: #222;
 }
 
 /* Navbar */
 header {
-  background: #1f2937;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #0f172a;
+  padding: 10px 0;
 }
 
 nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
-  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 12px 20px;
+  display: block;
+  transition: 0.3s;
 }
 
 nav ul li a:hover {
-  background: #38bdf8;
-  color: #1f2937;
-}
-
-/* Hero Section */
-#home {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-  border-bottom-left-radius: 100px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-#home h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  animation: fadeInDown 1s ease;
-}
-
-#home p {
-  font-size: 1.3rem;
-  animation: fadeInUp 1s ease;
+  background-color: #1e293b;
+  border-radius: 6px;
 }
 
 /* Sections */
 section {
   padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-section h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #1f2937;
 }
 
-/* Project Cards */
+/* Projects */
+.project-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .project-card {
   background: white;
-  padding: 25px;
-  margin: 20px auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
-  transition: all 0.3s ease;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
+  transition: 0.3s;
 }
 
-/* Contact Form */
+/* Form */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
-  margin: auto;
+  align-items: center;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-form input,
-form textarea {
-  padding: 14px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-form input:focus,
-form textarea:focus {
-  border-color: #38bdf8;
-  outline: none;
-}
-
-form button {
-  padding: 14px;
-  background-color: #1f2937;
+button {
+  background: #0ea5e9;
   color: white;
-  font-size: 1.1rem;
   border: none;
-  border-radius: 10px;
+  padding: 12px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
 }
 
-form button:hover {
-  background-color: #38bdf8;
-  color: #1f2937;
+button:hover {
+  background: #0284c7;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background: #1f2937;
+  background: #0f172a;
   color: white;
-  font-size: 0.9rem;
-  margin-top: 60px;
-  border-top-right-radius: 100px;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  from {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #38bdf8;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: all 0.4s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.toast.error {
+  background-color: #ef4444;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  #home h1 {
-    font-size: 2.2rem;
-  }
-
-  section h2 {
-    font-size: 2rem;
-  }
-
-  .project-card {
-    margin: 15px;
-  }
+.toast.fade-out {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
 }
