@@ -13,13 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // You can also add more advanced email validation if needed
-    showToast("✅ Your message has been sent!", "success");
-
+    showToast("✅ Message sent successfully!", "success");
     form.reset();
   });
 
-  // Toast function
   function showToast(msg, type) {
     const toast = document.createElement("div");
     toast.className = `toast ${type}`;
@@ -35,26 +32,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 });
-.toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #38bdf8;
-  color: #fff;
-  padding: 14px 24px;
-  border-radius: 10px;
-  font-weight: 600;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  transition: all 0.4s ease;
-}
-
-.toast.error {
-  background-color: #ef4444;
-}
-
-.toast.fade-out {
-  opacity: 0;
-  transform: translateX(-50%) translateY(20px);
-}
