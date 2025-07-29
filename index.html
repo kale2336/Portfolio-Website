@@ -1,46 +1,141 @@
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <section id="home">
-    <h1>Sarthak Bhole</h1>
-    <p>Frontend Developer | Team: Sarthak & Nakul</p>
-  </section>
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(to right, #e0f7fa, #fff); /* Pleasant background */
+  color: #333;
+  scroll-behavior: smooth;
+}
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>Created by Sarthak and Nakul. A responsive personal website with contact form and smooth animations.</p>
-      </div>
-      <div class="project-card">
-        <h3>To-Do App</h3>
-        <p>Built using HTML, CSS & JavaScript with Nakul’s collaboration on design and UX.</p>
-      </div>
-    </div>
-  </section>
+/* Navbar */
+header {
+  background-color: #0077b6;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+nav a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #90e0ef;
+}
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
 
-  <footer>
-    <p>© 2025 Built by Sarthak & Nakul</p>
-  </footer>
+/* Hero Section */
+#home h1 {
+  font-size: 3rem;
+  color: #0077b6;
+}
+#home p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
 
-  <script src="script.js"></script>
-</body>
+/* Projects */
+#projects .project-list {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 30px;
+}
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.project-card h3 {
+  color: #0077b6;
+  margin-bottom: 10px;
+}
+
+/* Contact */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+button {
+  background-color: #0077b6;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: #023e8a;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0077b6;
+  color: white;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+/* Toasts */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #38bdf8;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: all 0.4s ease;
+}
+.toast.error {
+  background-color: #ef4444;
+}
+.toast.fade-out {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+}
